@@ -1,0 +1,296 @@
+.vessel-try-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(3rem, 6vh, 5rem) clamp(1.25rem, 5vw, 5rem);
+  box-sizing: border-box;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.vessel-try-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.vessel-try-built {
+  text-align: center;
+}
+
+.vessel-try-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-ai);
+  margin-bottom: 0.85rem;
+}
+
+.vessel-try-eyebrow--inline {
+  margin-bottom: 0.65rem;
+}
+
+.vessel-try-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.95rem, 3vw, 2.65rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.vessel-try-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.125rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.vessel-try-intro {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 52ch;
+  margin: 0 auto 1.5rem;
+}
+
+.vessel-try-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.vessel-try-tags li {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+}
+
+.vessel-try-panel {
+  padding: 2rem 2rem 2.25rem;
+  border-radius: var(--radius-lg);
+  background: rgba(2, 6, 23, 0.65);
+  border: 1px solid var(--border-subtle);
+}
+
+.vessel-try-panel-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.vessel-try-steps {
+  position: relative;
+  display: flex;
+}
+
+.vessel-try-track {
+  position: absolute;
+  left: 22px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+.vessel-try-track-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--accent-ai), var(--accent-marine));
+  border-radius: 2px;
+}
+
+.vessel-try-step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.vessel-try-step {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 1rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.vessel-try-step-index {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent-ai);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.22);
+}
+
+.vessel-try-step h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.vessel-try-step p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.vessel-try-now {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2rem 2rem 2.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.08) 0%, rgba(37, 99, 235, 0.06) 100%);
+}
+
+.vessel-try-now-copy p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.vessel-try-now-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 200px;
+}
+
+.vessel-try-chat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.vessel-try-chat-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--accent-ai);
+  border: 1px solid rgba(34, 211, 238, 0.28);
+}
+
+.vessel-try-chat-copy {
+  flex: 1;
+  min-width: 200px;
+}
+
+.vessel-try-chat-copy p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.vessel-try-chat-copy em {
+  font-style: italic;
+  color: #e2e8f0;
+}
+
+.vessel-try-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: filter 0.2s ease, background 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.vessel-try-btn--primary {
+  background: linear-gradient(135deg, var(--accent-ai) 0%, #0891b2 100%);
+  color: var(--bg-base);
+  box-shadow: 0 8px 28px rgba(34, 211, 238, 0.3);
+}
+
+.vessel-try-btn--primary:hover {
+  filter: brightness(1.06);
+}
+
+.vessel-try-btn--ghost {
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.vessel-try-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .vessel-try-now {
+    grid-template-columns: 1fr;
+  }
+
+  .vessel-try-now-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .vessel-try-chat {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .vessel-try-chat .vessel-try-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,49 @@
+.page-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-backdrop-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+}
+
+.page-backdrop-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.page-backdrop-orb--1 {
+  width: min(90vw, 720px);
+  height: min(90vw, 720px);
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.22) 0%, transparent 65%);
+  opacity: 0.5;
+}
+
+.page-backdrop-orb--2 {
+  width: min(70vw, 520px);
+  height: min(70vw, 520px);
+  bottom: 10%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 65%);
+  opacity: 0.4;
+}
+
+.page-backdrop-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 100% 100% at 50% 0%, transparent 0%, var(--bg-base) 78%);
+}

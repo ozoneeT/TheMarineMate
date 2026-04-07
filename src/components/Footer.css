@@ -1,0 +1,129 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, var(--bg-base) 0%, #04060d 100%);
+  border-top: 1px solid var(--border-subtle);
+  padding: clamp(3.5rem, 8vw, 5rem) clamp(1.25rem, 5vw, 5rem) 2rem;
+}
+
+.footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-section {
+  flex: 1;
+  max-width: 340px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.footer-brand-logo {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-brand {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.social-link:hover {
+  background: rgba(34, 211, 238, 0.12);
+  border-color: rgba(34, 211, 238, 0.35);
+  color: var(--accent-ai);
+}
+
+.footer-links-grid {
+  display: flex;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.footer-column h4 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.footer-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-column a {
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--accent-ai);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.75rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: rgba(148, 163, 184, 0.55);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-links-grid {
+    flex-wrap: wrap;
+  }
+}
