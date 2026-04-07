@@ -46,12 +46,13 @@ const HeroSection = () => {
               Your boat has a brain.
             </motion.span>
             <motion.span
-              className="hero-title-line"
+              className="hero-title-line hero-title-line--tagline"
               initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-              Meet your Marine Mate.
+              Meet your{' '}
+              <span className="hero-title-brand">Marine Mate</span>.
             </motion.span>
           </motion.h1>
 
