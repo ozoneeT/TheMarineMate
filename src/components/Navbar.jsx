@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useMotionDisabled } from './motion/useMotionDisabled.js';
+import React, { useState, useLayoutEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
-import { revealEase } from './motion/revealMotion.js';
 import './Navbar.css';
 
 const navLinks = [
@@ -15,9 +12,8 @@ const navLinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const motionOff = useMotionDisabled();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
@@ -28,12 +24,7 @@ const Navbar = () => {
 
   return (
     <>
-      <motion.nav
-        className="navbar"
-        initial={motionOff ? false : { opacity: 0, y: -14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: motionOff ? 0 : 0.55, ease: revealEase }}
-      >
+      <nav className="navbar">
         <div className="navbar-container">
           <a href="#" className="navbar-logo" onClick={closeMenu}>
             <BrandLogo className="navbar-brand-logo" width={30} height={30} loading="eager" />
@@ -64,27 +55,29 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
-      {menuOpen ? (
-        <div id="mobile-nav" className="navbar-mobile">
-          <button type="button" className="navbar-mobile-backdrop" aria-label="Close menu" onClick={closeMenu} />
-          <div className="navbar-mobile-panel">
-            <ul className="navbar-mobile-links">
-              {navLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <a href={href} onClick={closeMenu}>
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a href="#get-my-mate" className="btn-nav-primary btn-nav-primary--block" onClick={closeMenu}>
-              Get My Mate
-            </a>
-          </div>
+      <div
+        id="mobile-nav"
+        className={`navbar-mobile ${menuOpen ? 'navbar-mobile--open' : ''}`}
+        aria-hidden={!menuOpen}
+      >
+        <button type="button" className="navbar-mobile-backdrop" aria-label="Close menu" onClick={closeMenu} />
+        <div className="navbar-mobile-panel">
+          <ul className="navbar-mobile-links">
+            {navLinks.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href} onClick={closeMenu}>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="#get-my-mate" className="btn-nav-primary btn-nav-primary--block" onClick={closeMenu}>
+            Get My Mate
+          </a>
         </div>
-      ) : null}
+      </div>
     </>
   );
 };

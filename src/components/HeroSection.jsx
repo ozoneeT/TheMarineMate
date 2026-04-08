@@ -1,20 +1,20 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Ship } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
-import { useMotionDisabled } from './motion/useMotionDisabled.js';
 import './HeroSection.css';
 
 const HeroSection = () => {
-  const motionOff = useMotionDisabled();
+  /** Hero keeps motion on mobile; only OS “reduce motion” disables it */
+  const reduce = useReducedMotion();
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
 
-  const mockupY = useTransform(scrollYProgress, [0, 1], motionOff ? [0, 0] : [0, 60]);
-  const glowOpacity = useTransform(scrollYProgress, [0, 0.5], motionOff ? [1, 1] : [1, 0.4]);
+  const mockupY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 60]);
+  const glowOpacity = useTransform(scrollYProgress, [0, 0.5], reduce ? [1, 1] : [1, 0.4]);
 
   return (
     <section ref={sectionRef} className="hero-section" aria-labelledby="hero-heading">
@@ -23,9 +23,9 @@ const HeroSection = () => {
         <div className="hero-copy">
           <motion.div
             className="hero-pill"
-            initial={motionOff ? false : { opacity: 0, y: 16 }}
+            initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: motionOff ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduce ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <span>Founding boats beta out!</span>
             <span className="pill-divider" />
@@ -40,11 +40,11 @@ const HeroSection = () => {
           >
             <motion.span 
               className="hero-title-line"
-              initial={motionOff ? false : { opacity: 0, y: 28, filter: 'blur(8px)' }}
+              initial={reduce ? false : { opacity: 0, y: 28, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{
-                duration: motionOff ? 0 : 0.55,
-                delay: motionOff ? 0 : 0.08,
+                duration: reduce ? 0 : 0.55,
+                delay: reduce ? 0 : 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
@@ -52,11 +52,11 @@ const HeroSection = () => {
             </motion.span>
             <motion.span
               className="hero-title-line hero-title-line--tagline"
-              initial={motionOff ? false : { opacity: 0, y: 24 }}
+              initial={reduce ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: motionOff ? 0 : 0.65,
-                delay: motionOff ? 0 : 0.45,
+                duration: reduce ? 0 : 0.65,
+                delay: reduce ? 0 : 0.45,
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
@@ -67,9 +67,9 @@ const HeroSection = () => {
 
           <motion.p
             className="hero-subtitle"
-            initial={motionOff ? false : { opacity: 0, y: 20 }}
+            initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: motionOff ? 0 : 0.55, delay: motionOff ? 0 : 0.35 }}
+            transition={{ duration: reduce ? 0 : 0.55, delay: reduce ? 0 : 0.35 }}
           >
             An AI copilot trained on your vessel — manuals, photos, upgrades, service history, and spare
             parts. Empower your crew, fix things faster, and maximize time on the water effortlessly.
@@ -77,9 +77,9 @@ const HeroSection = () => {
 
           <motion.div
             className="hero-actions"
-            initial={motionOff ? false : { opacity: 0, y: 20 }}
+            initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: motionOff ? 0 : 0.55, delay: motionOff ? 0 : 0.5 }}
+            transition={{ duration: reduce ? 0 : 0.55, delay: reduce ? 0 : 0.5 }}
           >
             <a href="#pricing" className="hero-btn hero-btn--primary">
               Apply for beta — 50% off
@@ -97,14 +97,14 @@ const HeroSection = () => {
 
           <motion.div
             className="hero-mockup glass glow-box"
-            initial={motionOff ? false : { opacity: 0, scale: 0.96, rotateX: 8 }}
-            animate={{ opacity: 1, scale: 1, rotateX: motionOff ? 0 : 4 }}
+            initial={reduce ? false : { opacity: 0, scale: 0.96, rotateX: 8 }}
+            animate={{ opacity: 1, scale: 1, rotateX: reduce ? 0 : 4 }}
             transition={{
-              duration: motionOff ? 0 : 0.85,
-              delay: motionOff ? 0 : 0.35,
+              duration: reduce ? 0 : 0.85,
+              delay: reduce ? 0 : 0.35,
               ease: [0.22, 1, 0.36, 1],
             }}
-            whileHover={motionOff ? {} : { rotateX: 0, scale: 1.01, transition: { duration: 0.35 } }}
+            whileHover={reduce ? {} : { rotateX: 0, scale: 1.01, transition: { duration: 0.35 } }}
             style={{ y: mockupY, transformPerspective: 1200 }}
           >
             <div className="mockup-header">
