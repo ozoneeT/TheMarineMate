@@ -108,3 +108,21 @@ section {
   position: relative;
   z-index: 1;
 }
+
+/* Mobile: calmer type scale; decorative UI loops off (matches motion-off breakpoint 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .mockup-live-dot {
+    animation: none;
+    opacity: 1;
+  }
+
+  .typing .dot {
+    animation: none;
+    transform: scale(1);
+    opacity: 0.45;
+  }
+}

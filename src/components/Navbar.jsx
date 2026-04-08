@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useMotionDisabled } from './motion/useMotionDisabled.js';
 import { Menu, X } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { revealEase } from './motion/revealMotion.js';
@@ -14,7 +15,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const reduce = useReducedMotion();
+  const motionOff = useMotionDisabled();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -29,9 +30,9 @@ const Navbar = () => {
     <>
       <motion.nav
         className="navbar"
-        initial={reduce ? false : { opacity: 0, y: -14 }}
+        initial={motionOff ? false : { opacity: 0, y: -14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: revealEase }}
+        transition={{ duration: motionOff ? 0 : 0.55, ease: revealEase }}
       >
         <div className="navbar-container">
           <a href="#" className="navbar-logo" onClick={closeMenu}>

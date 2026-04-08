@@ -1,6 +1,7 @@
 import { createElement } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { revealEase, revealTransition, revealViewport } from './revealMotion.js';
+import { useMotionDisabled } from './useMotionDisabled.js';
 
 function pickMotion(as, fallback) {
   if (typeof as === 'string' && motion[as]) return motion[as];
@@ -8,11 +9,11 @@ function pickMotion(as, fallback) {
 }
 
 export function Reveal({ children, className, as = 'div', delay = 0, duration = 0.58, y = 40, ...rest }) {
-  const reduce = useReducedMotion();
+  const reduce = useMotionDisabled();
   const Cmp = pickMotion(as, motion.div);
   return createElement(Cmp, {
     className,
-    initial: reduce ? false : { opacity: 0, y },
+    initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y },
     whileInView: { opacity: 1, y: 0 },
     viewport: revealViewport,
     transition: revealTransition(duration, delay, reduce),
@@ -21,11 +22,11 @@ export function Reveal({ children, className, as = 'div', delay = 0, duration = 
 }
 
 export function RevealHeading({ children, className, as = 'h2', delay = 0, duration = 0.62, y = 32, ...rest }) {
-  const reduce = useReducedMotion();
+  const reduce = useMotionDisabled();
   const Cmp = pickMotion(as, motion.h2);
   return createElement(Cmp, {
     className,
-    initial: reduce ? false : { opacity: 0, y, filter: 'blur(10px)' },
+    initial: reduce ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y, filter: 'blur(10px)' },
     whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
     viewport: revealViewport,
     transition: revealTransition(duration, delay, reduce),
@@ -34,7 +35,7 @@ export function RevealHeading({ children, className, as = 'h2', delay = 0, durat
 }
 
 export function RevealStagger({ children, className, stagger = 0.085, delayChildren = 0.08, as = 'div', ...rest }) {
-  const reduce = useReducedMotion();
+  const reduce = useMotionDisabled();
   const Cmp = pickMotion(as, motion.div);
   return createElement(Cmp, {
     className,
@@ -55,7 +56,7 @@ export function RevealStagger({ children, className, stagger = 0.085, delayChild
 }
 
 export function RevealItem({ children, className, as = 'div', ...rest }) {
-  const reduce = useReducedMotion();
+  const reduce = useMotionDisabled();
   const Cmp = pickMotion(as, motion.div);
   return createElement(Cmp, {
     className,
@@ -64,7 +65,7 @@ export function RevealItem({ children, className, as = 'div', ...rest }) {
       show: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.52, ease: revealEase },
+        transition: { duration: reduce ? 0 : 0.52, ease: revealEase },
       },
     },
     ...rest,

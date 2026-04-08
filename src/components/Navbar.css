@@ -208,3 +208,30 @@
     display: block;
   }
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.7rem 1.25rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.02rem;
+    line-height: 1.2;
+  }
+
+  .navbar-menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar-mobile-panel {
+    width: min(300px, 92vw);
+    padding: 4.75rem 1.35rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .navbar-mobile-links a {
+    font-size: 1.05rem;
+    padding: 0.75rem 0;
+  }
+}
