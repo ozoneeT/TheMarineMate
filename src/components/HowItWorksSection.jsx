@@ -29,7 +29,7 @@ const HowItWorksSection = () => {
       <div className="how-section__inner how-section__inner--combined">
         <div className="how-content">
           <RevealHeading as="h2" id="why-marine-heading" className="how-title" y={30} duration={0.64}>
-            Why The <span className="how-title-accent">Marine Mate</span>
+            Why <span className="how-title-accent">Marine Mate</span>
           </RevealHeading>
 
           <RevealStagger as="div" className="how-story" stagger={0.1} delayChildren={0.08}>
@@ -43,7 +43,7 @@ const HowItWorksSection = () => {
               vessel — not just the manufacturer specs, but our actual setup, our components, our history.
             </RevealItem>
             <RevealItem as="p">
-              So I built it. Marine Mate was born from that afternoon, and from there, Intelligent Mate grew — AI copilots
+              So I built it. The Marine Mate was born from that afternoon, and from there, Intelligent Mate grew — AI copilots
               for every kind of asset owner who's ever been stuck without answers when it matters most.
             </RevealItem>
           </RevealStagger>

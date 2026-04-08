@@ -9,7 +9,7 @@ export function BrandLogo({
   className = '',
   width = 32,
   height = 32,
-  alt = 'Marine Mate',
+  alt = 'The Marine Mate',
   loading = 'lazy',
   ...rest
 }) {

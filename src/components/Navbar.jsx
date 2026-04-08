@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className="navbar-container">
           <a href="#" className="navbar-logo" onClick={closeMenu}>
             <BrandLogo className="navbar-brand-logo" width={30} height={30} loading="eager" />
-            <span className="navbar-brand">Marine Mate</span>
+            <span className="navbar-brand">The Marine Mate</span>
           </a>
 
           <ul className="navbar-links" role="list">

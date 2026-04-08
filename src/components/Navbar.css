@@ -172,6 +172,26 @@
 }
 
 @media (max-width: 900px) {
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: none;
+    gap: 1rem;
+  }
+
+  .navbar-logo {
+    flex: 1;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .navbar-actions {
+    flex-shrink: 0;
+    justify-content: flex-end;
+  }
+
   .navbar-links {
     display: none;
   }

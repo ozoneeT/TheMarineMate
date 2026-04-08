@@ -12,7 +12,7 @@ const Footer = () => {
           <Reveal as="div" className="footer-brand-section" y={32} duration={0.56}>
             <div className="footer-logo">
               <BrandLogo className="footer-brand-logo" width={32} height={32} />
-              <span className="footer-brand">Marine Mate</span>
+              <span className="footer-brand">The Marine Mate</span>
             </div>
             <p className="footer-tagline">
               Your vessel-specific AI copilot — manuals, maintenance, and inventory in one place.
@@ -77,7 +77,7 @@ const Footer = () => {
         </div>
 
         <Reveal as="div" className="footer-bottom" y={16} duration={0.45}>
-          <p>&copy; {new Date().getFullYear()} Marine Mate. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} The Marine Mate. All rights reserved.</p>
         </Reveal>
       </div>
     </footer>
