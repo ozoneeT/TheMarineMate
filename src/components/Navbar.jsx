@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import './Navbar.css';
@@ -13,10 +13,12 @@ const navLinks = [
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useLayoutEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  /* Native scroll lock only — no layout effect, so the drawer isn’t blocked by a full-document reflow */
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.removeProperty('overflow');
     };
   }, [menuOpen]);
 

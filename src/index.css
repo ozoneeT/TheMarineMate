@@ -39,6 +39,8 @@
 
 html {
   scroll-behavior: auto;
+  /* Avoid horizontal layout shift when body scroll is locked (mobile menu) */
+  scrollbar-gutter: stable;
 }
 
 html,
